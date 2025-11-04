@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ha-Young Doo — CV Details</title>
-  <meta name="description" content="Academic CV details of Ha-Young Doo." />
+  <title>Ha-Young Doo — Profile</title>
+  <meta name="description" content="Simple one-page profile for PhD applications." />
   <meta name="color-scheme" content="light dark">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -12,7 +12,7 @@
       --bg: #f9fafb;
       --text: #1f2937;
       --muted:#6b7280;
-      --brand:#3b4a66;
+      --brand:#3b4a66; /* bluish gray */
       --accent:#4b5563;
       --panel:#ffffff;
       --ring:#e5e7eb;
@@ -29,92 +29,138 @@
       background: var(--bg); color: var(--text);
       position: relative; overflow-x: hidden;
     }
-    .wrap{max-width: 900px; margin: 0 auto; padding: 40px 18px 80px; position:relative; z-index:1;}
+
+    .wrap{max-width: 860px; margin: 0 auto; padding: 40px 18px 80px; position:relative; z-index:1;}
     .card{ background: var(--panel); border: 1px solid var(--ring); border-radius: var(--radius); padding: 28px; box-shadow: 0 6px 22px rgba(0,0,0,.05); }
 
-    .hero{ text-align: center; margin-bottom: 10px; }
-    h1{ font-family: 'Merriweather', serif; font-size: clamp(26px, 3.6vw, 34px); margin: 0 0 4px; font-weight:700; letter-spacing: .3px; color: var(--brand); }
+    /* Header */
+    .hero{ text-align: center; }
+    .photo{ width: 172px; height: 172px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto; border: 3px solid var(--ring); box-shadow: 0 4px 14px rgba(0,0,0,.08);}   
+    h1{ font-family: 'Merriweather', serif; font-size: clamp(28px, 4.5vw, 46px); margin: 16px 0 4px; font-weight:700; letter-spacing: .3px; color: var(--brand); }
     .subtitle{ color: var(--muted); font-weight: 500; font-family: 'Poppins'; font-size: 15px; }
 
-    .nav{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      margin: 10px 0 10px;
-      flex-wrap:wrap;
-    }
-    .nav a{
-      font-size: 14px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      text-decoration:none;
-      color: var(--muted);
-      border: 1px solid transparent;
-      background: transparent;
-      transition: background .15s ease, color .15s ease, border-color .15s ease;
-    }
-    .nav a:hover{
-      border-color: var(--ring);
-      background: var(--chip);
-      color: var(--brand);
-    }
-    .nav a.active{
-      border-color: var(--brand);
-      background: var(--chip);
-      color: var(--brand);
-      font-weight: 500;
-    }
+    /* Icon bar */
+    .iconbar{ display:flex; justify-content:center; align-items:center; gap:14px; margin:12px auto 2px; }
+    .iconbtn{ width:44px; height:44px; border-radius:9999px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--ring); background: var(--chip); color: var(--text); text-decoration:none; transition: transform .15s ease, box-shadow .15s ease; }
+    .iconbtn:hover{ transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.1); border-color: var(--brand); color: var(--brand); }
+    .iconbtn svg{ width:20px; height:20px; }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,1,1); white-space:nowrap; border:0; }
 
-    h2{
-      font-family:'Merriweather',serif;
-      font-size:20px;
-      margin:22px 0 10px;
-      color:var(--brand);
-    }
-    .section{
-      font-size:15px;
-      line-height:1.7;
-      margin-top:6px;
-    }
-    .item{
-      display:flex;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom:8px;
-    }
-    .item-main{
-      flex:1 1 auto;
-    }
-    .item-title{
+    /* Content */
+    .content{ margin-top: 18px; font-size: 15px; line-height: 1.7; font-family: 'Poppins'; }
+    .content strong{ font-weight:600; letter-spacing: .2px; }
+    .content .highlight{ color: var(--brand); }
+    .content a{ color: var(--brand); text-decoration: none; }
+    .content a:hover{ text-decoration: underline; }
+
+    .section{ margin-top: 24px; }
+    .section-title{
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: var(--brand);
+      letter-spacing:.3px;
       font-weight:600;
+      font-family:'Merriweather',serif;
     }
-    .item-meta{
+    .section-sub{
+      margin:0 0 8px;
       font-size:13px;
       color:var(--muted);
     }
-    .item-right{
-      flex:0 0 auto;
-      font-size:13px;
+
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .tag{ padding:6px 11px; border-radius:999px; background: var(--chip); border:1px solid var(--ring); font-size:13px; color:var(--text); font-family:'Poppins'; }
+
+    .foot{ margin-top: 26px; text-align: center; color: var(--muted); font-size: 13px; font-family:'Poppins'; }
+
+    /* Blocks & lists (for quick mobile scan) */
+    .block{
+      padding:10px 0;
+      border-top:1px solid var(--ring);
+      font-size:14px;
+    }
+    .block:first-of-type{ border-top:none; }
+    .block-header{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:flex-start;
+      margin-bottom:2px;
+      font-weight:500;
+    }
+    .block-title{ font-size:14px; }
+    .block-meta{
+      font-size:12px;
       color:var(--muted);
       white-space:nowrap;
     }
-    .bullet-list{
-      margin:4px 0 4px 18px;
-      padding:0;
-    }
-    .bullet-list li{
-      margin-bottom:2px;
-    }
-    .tagline{
+    .block-note{
       font-size:13px;
       color:var(--muted);
       margin-top:2px;
     }
+    .chipline{
+      margin-top:6px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+    .chip-mini{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--ring);
+      color:var(--muted);
+    }
 
+    .list{
+      margin:4px 0 0;
+      padding-left:1.05rem;
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .list li+li{ margin-top:2px; }
+
+    @media (max-width: 560px){
+      .block-header{ flex-direction:column; align-items:flex-start; }
+      .block-meta{ margin-top:1px; }
+    }
+
+    /* Enhanced gradient and animation */
     body::before{
       content:""; position: fixed; inset:0; pointer-events:none; z-index:0;
       background: linear-gradient(140deg, color-mix(in srgb, var(--brand) 25%, var(--bg)) 0%, var(--bg) 70%);
-      opacity: 0.9;
+      opacity: 0;
+      animation: bgFade 2.4s ease-out .2s forwards;
+    }
+    @keyframes bgFade{
+      0%{ opacity: 0; transform: scale(1.03); filter: blur(8px); }
+      70%{ opacity: 0.9; transform: scale(1.01); filter: blur(3px); }
+      100%{ opacity: 1; transform: none; filter: none; }
+    }
+
+    .card{ 
+      opacity:0; 
+      transform: translateY(24px) scale(0.98); 
+      animation: cardFade 1.8s cubic-bezier(.25,.1,.25,1) .6s forwards; 
+    }
+    @keyframes cardFade{
+      0%{ opacity:0; transform: translateY(24px) scale(0.97); }
+      60%{ opacity:0.8; transform: translateY(8px) scale(1.01); }
+      100%{ opacity:1; transform: none; }
+    }
+    
+    /* Element reveal helper */
+    .reveal{ 
+      opacity:0; 
+      transform: translateY(10px); 
+      animation: fadeUp .9s ease both; 
+    }
+    .delay-1{ animation-delay: .2s }
+    .delay-2{ animation-delay: .35s }
+    @keyframes fadeUp{ 
+      to{ opacity:1; transform:none } 
     }
   </style>
 </head>
@@ -122,121 +168,299 @@
   <main class="wrap">
     <article class="card">
       <header class="hero">
-        <h1>CV Details</h1>
-        <div class="subtitle">Education · Scholarships · Teaching · Service</div>
-
-        <nav class="nav" aria-label="Main navigation">
-          <a href="index.html">Overview</a>
-          <a href="research.html">Research</a>
-          <a href="cv.html" class="active">CV Details</a>
-        </nav>
+        <img class="photo reveal" src="https://i.imgur.com/iUqPLxg.jpg" alt="Portrait of Ha-Young Doo">
+        <div class="iconbar" aria-label="Primary links">
+          <a class="iconbtn" href="mailto:doou_v@ewhain.net" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>
+            <span class="sr-only">Email</span>
+          </a>
+          <a class="iconbtn" href="https://nagroup.ewha.ac.kr/" target="_blank" rel="noopener" title="Lab homepage" aria-label="Lab homepage">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/><path d="M3 12v9h18v-9"/></svg>
+            <span class="sr-only">Lab homepage</span>
+          </a>
+          <a class="iconbtn" href="#" onclick="alert('Full CV coming soon. For now, this page is the quick snapshot.'); return false;" title="Snapshot CV" aria-label="CV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="m7 12 5 5 5-5"/><rect x="4" y="19" width="16" height="2" rx="1"/></svg>
+            <span class="sr-only">CV</span>
+          </a>
+          <a class="iconbtn" href="https://github.com/doouv" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2.3c-3.2.7-3.9-1.6-3.9-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.6 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6.3 0-1.5.5-2.6 1.2-3.5-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6.2 0C17 5.4 18 5.7 18 5.7c.6 1.7.2 3 .1 3.3.8.9 1.2 2 1.2 3.5 0 4.9-2.9 6-5.6 6.3.4.3.8 1 .8 2.1v3.1c0 .4.3.7.8.6A12 12 0 0 0 12 .5"/></svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </div>
+        <h1 class="reveal delay-1">Ha-Young Doo</h1>
+        <div class="subtitle reveal delay-2">M.S. Student · Chemical &amp; Materials Engineering · Ewha Womans University</div>
       </header>
 
-      <section class="section">
-        <h2>Education</h2>
-
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">M.S. in Chemical Engineering &amp; Materials Science</div>
-            <div class="item-meta">Ewha Womans University, Seoul, Korea</div>
-            <ul class="bullet-list">
-              <li>Period: 2024.09 – present (expected Aug 2026)</li>
-              <li>GPA: 4.3 / 4.3 (WES 4.0)</li>
-              <li>Research: AI-driven electrocatalyst design, self-driving laboratories, OER foundation models</li>
-            </ul>
-          </div>
-          <div class="item-right">2024–2026 (exp.)</div>
-        </div>
-
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">B.S. in Chemical Engineering &amp; Materials Science</div>
-            <div class="item-meta">Ewha Womans University, Seoul, Korea</div>
-            <ul class="bullet-list">
-              <li>Period: 2020.03 – 2024.08</li>
-              <li>GPA: 3.75 / 4.3 (WES 3.66)</li>
-              <li>Graduated with honors</li>
-              <li>Undergraduate thesis: <em>“Machine-learning-based electrocatalyst design: the Open Catalyst Project and recent advances”</em> (review)</li>
-            </ul>
-          </div>
-          <div class="item-right">2020–2024</div>
-        </div>
-
-        <p class="tagline">
-          Dean’s honor-type lists (multiple semesters: 2020 Spring, 2021 Fall, 2022 Fall, 2024 Spring).
+      <!-- Short intro -->
+      <section class="content">
+        <p>
+          I am <strong class="highlight">Hayoung</strong>, a master’s student in
+          <strong>Chemical &amp; Materials Engineering</strong> at Ewha Womans University (Seoul),
+          working at the interface of <strong class="highlight">AI for chemistry</strong>,
+          <strong class="highlight">electrocatalyst design</strong>, and
+          <strong class="highlight">autonomous research workflows</strong>.
+        </p>
+        <p>
+          My current focus is building <strong>foundation models for oxide-based OER catalysts</strong> and
+          enabling <strong>inverse design</strong> of electrocatalysts that are physically meaningful and
+          experimentally actionable.
         </p>
       </section>
 
-      <section class="section">
-        <h2>Scholarships & Honors</h2>
-
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">Dooeul Scholarship Foundation — Full Scholarship</div>
-            <div class="item-meta">Supported by Samsung, CJ, Shinsegae, Hansol</div>
-          </div>
-          <div class="item-right">2020.12 – 2024.08</div>
+      <!-- Research interests (short chips) -->
+      <section class="section" aria-label="Research interests and key skills">
+        <h3 class="section-title">Research snapshot</h3>
+        <p class="section-sub">What I enjoy thinking about &amp; building</p>
+        <div class="tags">
+          <span class="tag">AI for Chemistry</span>
+          <span class="tag">Oxide Electrocatalysts (OER)</span>
+          <span class="tag">Inverse Design &amp; Generative Models</span>
+          <span class="tag">Self-Driving / Autonomous Labs</span>
+          <span class="tag">Process Systems Engineering Viewpoint</span>
         </div>
 
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">Academic Excellence Scholarship</div>
-            <div class="item-meta">Ewha Womans University</div>
-          </div>
-          <div class="item-right">2020.09</div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Teaching & Academic Support</h2>
-
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">Teaching Assistant — Chemical Engineering Mathematics</div>
-            <div class="item-meta">Ewha Womans University · Spring 2025</div>
-            <ul class="bullet-list">
-              <li>Supported problem-solving sessions and mathematical modeling for chemical engineering majors.</li>
-            </ul>
-          </div>
-          <div class="item-right">2025.03 – 06</div>
+        <h3 class="section-title" style="margin-top:16px;">Key skills</h3>
+        <div class="tags">
+          <span class="tag">PyTorch · GNNs · Diffusion</span>
+          <span class="tag">Multi-GPU &amp; Docker</span>
+          <span class="tag">Dataset curation (OC20/OC22)</span>
+          <span class="tag">Scientific writing &amp; visualization</span>
         </div>
 
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">TA — PSE Summer School</div>
-            <div class="item-meta">Ewha Womans University · 2025 Summer</div>
-            <ul class="bullet-list">
-              <li>Prepared and maintained <strong>GitHub tutorials</strong> for process systems engineering and AI workflows.</li>
-            </ul>
-          </div>
-          <div class="item-right">2025.08</div>
+        <h3 class="section-title" style="margin-top:16px;">Languages</h3>
+        <div class="tags">
+          <span class="tag">Korean (Native)</span>
+          <span class="tag">English (Advanced)</span>
+          <span class="tag">Chinese (Advanced)</span>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Service & Outreach</h2>
+      <!-- Education -->
+      <section class="section" aria-label="Education">
+        <h3 class="section-title">Education</h3>
 
-        <div class="item">
-          <div class="item-main">
-            <div class="item-title">Hyundai Motor Group Educational Volunteer Program (8th)</div>
-            <div class="item-meta">Educational support & emotional care for children at local community centers</div>
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              M.S. in Chemical &amp; Materials Engineering, Ewha Womans University
+            </div>
+            <div class="block-meta">Sep 2024 – Aug 2026 (expected)</div>
           </div>
-          <div class="item-right">2022.01 – 12</div>
+          <div class="block-note">
+            GPA: 4.3 / 4.3 (WES 4.0)
+          </div>
+          <ul class="list">
+            <li>Research: AI-based inverse design of oxygen evolution reaction (OER) catalysts, autonomous experimentation.</li>
+            <li>Thesis direction: <em>Equivariant latent diffusion framework for electrocatalyst generation</em> (working title).</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              B.S. in Chemical Engineering &amp; Materials Science, Ewha Womans University
+            </div>
+            <div class="block-meta">Mar 2020 – Aug 2024</div>
+          </div>
+          <div class="block-note">
+            GPA: 3.75 / 4.3 (WES 3.66) · Graduated <strong>magna cum laude</strong>
+          </div>
+          <ul class="list">
+            <li>Undergraduate thesis (review, in Korean): <em>Machine-learning-driven electrocatalyst design: Open Catalyst Project and recent trends</em>.</li>
+            <li>Academic honors (Dean’s list-equivalent): 2020 Spring, 2021 Fall, 2022 Fall, 2024 Spring.</li>
+          </ul>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Quick Facts</h2>
-        <ul class="bullet-list">
-          <li>Strong background in <strong>AI for chemistry, electrocatalysis, and process systems engineering</strong>.</li>
-          <li>Experience across <strong>university lab</strong> and <strong>national research institute (KIST)</strong>.</li>
-          <li>Consistent academic performance with <strong>full scholarship support</strong> and multiple honors.</li>
-        </ul>
+      <!-- Research experience -->
+      <section class="section" aria-label="Research experience">
+        <h3 class="section-title">Research experience</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              Graduate researcher, Na Group (Ewha Womans University)
+            </div>
+            <div class="block-meta">Sep 2024 – Present</div>
+          </div>
+          <div class="block-note">
+            Autonomous reaction optimization (sub) · Electrocatalyst design (main)
+          </div>
+          <ul class="list">
+            <li>Developing <strong>foundation models for OER catalysts</strong> based on OC20/OC22-style datasets.</li>
+            <li>Designing <strong>equivariant latent diffusion</strong> models for conditionally generating bulk/adsorbate/surface structures.</li>
+            <li>Exploring integration of generative models with <strong>self-driving laboratory</strong> workflows.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              Student researcher, KIST (Korea Institute of Science and Technology)
+            </div>
+            <div class="block-meta">Mar 2022 – Jun 2022</div>
+          </div>
+          <div class="block-note">
+            Solid-state electrolyte ion conductivity prediction
+          </div>
+          <ul class="list">
+            <li>Used <strong>AIMD-generated trajectories</strong> to train machine-learning interatomic potentials.</li>
+            <li>Modeled and analyzed <strong>ionic conductivity</strong> of solid electrolytes from atomistic simulations.</li>
+          </ul>
+        </div>
       </section>
 
-      <p style="margin-top:22px;font-size:13px;color:var(--muted);text-align:center;">
-        For research projects, publications, and conference talks, please see <a href="research.html" style="color:var(--brand);text-decoration:none;">Research</a>.
-      </p>
+      <!-- Projects / Grants -->
+      <section class="section" aria-label="Projects and grants">
+        <h3 class="section-title">Selected project</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              NRF Data Hub for Green Hydrogen “Super Catalysts”
+            </div>
+            <div class="block-meta">Sep 2024 – Present</div>
+          </div>
+          <div class="block-note">
+            Korea Research Foundation project · OER electrocatalyst foundation model
+          </div>
+          <ul class="list">
+            <li>Responsible for <strong>foundation model development</strong> for OER electrocatalysts within a national data hub.</li>
+            <li>Building inverse-design workflows to generate candidates matching <strong>target properties</strong> (e.g., binding energies, overpotential).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Publication -->
+      <section class="section" aria-label="Publication">
+        <h3 class="section-title">Publication</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">
+              Self-driving laboratories with artificial intelligence: an overview of process systems engineering perspective
+            </div>
+            <div class="block-meta">Computers &amp; Chemical Engineering, Vol. 203</div>
+          </div>
+          <div class="block-note">
+            <strong>First author</strong> · Overview of AI-driven self-driving labs from a PSE viewpoint.
+          </div>
+          <div class="chipline">
+            <a class="chip-mini" href="https://www.sciencedirect.com/science/article/pii/S0098135425002698" target="_blank" rel="noopener">
+              View article
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conferences & events -->
+      <section class="section" aria-label="Conferences and posters">
+        <h3 class="section-title">Conferences &amp; posters</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">AIChE Annual Meeting, Boston (Poster)</div>
+            <div class="block-meta">Fall 2025</div>
+          </div>
+          <ul class="list">
+            <li><em>Equivariant latent diffusion for the generation of oxygen evolution reaction catalyst</em>.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">KIChE General Meeting, Daegu (Poster)</div>
+            <div class="block-meta">Spring 2025</div>
+          </div>
+          <ul class="list">
+            <li><em>Foundation model to accelerate oxygen evolution reaction catalyst</em>.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">KIChE General Meeting, Busan (Poster)</div>
+            <div class="block-meta">Fall 2024</div>
+          </div>
+          <ul class="list">
+            <li><em>Autonomous chemical reaction optimization through derivative-free optimization</em>.</li>
+          </ul>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Nature Conference: AI for Materials, Materials for AI, Daejeon</div>
+            <div class="block-meta">Feb 2025</div>
+          </div>
+          <div class="block-note">Participant</div>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Korean Industrial &amp; Engineering Chemistry Society, Jeju</div>
+            <div class="block-meta">Jun 2025</div>
+          </div>
+          <div class="block-note">Participant</div>
+        </div>
+      </section>
+
+      <!-- Scholarships, TA, Service -->
+      <section class="section" aria-label="Scholarships, teaching, and service">
+        <h3 class="section-title">Scholarships</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Dooeul Scholarship Foundation · Full scholarship</div>
+            <div class="block-meta">Dec 2020 – Aug 2024</div>
+          </div>
+          <div class="block-note">
+            Supported by Samsung, CJ, Shinsegae, Hansol.
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Merit-based scholarship, Ewha Womans University</div>
+            <div class="block-meta">Fall 2020</div>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top:18px;">Teaching &amp; mentoring</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Teaching Assistant, Chemical Engineering Mathematics</div>
+            <div class="block-meta">Spring 2025</div>
+          </div>
+          <div class="block-note">
+            Led tutorials and problem sessions for undergraduate chemical engineering students.
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">TA, PSE Summer School</div>
+            <div class="block-meta">Aug 2025</div>
+          </div>
+          <div class="block-note">
+            Prepared and shared tutorial materials on GitHub for process systems engineering and AI.
+          </div>
+        </div>
+
+        <h3 class="section-title" style="margin-top:18px;">Service</h3>
+
+        <div class="block">
+          <div class="block-header">
+            <div class="block-title">Hyundai Motor Group Education Volunteer Corps (8th)</div>
+            <div class="block-meta">Jan 2022 – Dec 2022</div>
+          </div>
+          <div class="block-note">
+            Tutored and provided emotional support to children at local community centers.
+          </div>
+        </div>
+      </section>
+
+      <p class="foot">© 2025 Ha-Young Doo — quick profile for mobile &amp; PhD applications</p>
     </article>
   </main>
 </body>
