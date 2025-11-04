@@ -62,11 +62,6 @@
       font-weight:600;
       font-family:'Merriweather',serif;
     }
-    .section-sub{
-      margin:0 0 8px;
-      font-size:13px;
-      color:var(--muted);
-    }
 
     .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
     .tag{ padding:6px 11px; border-radius:999px; background: var(--chip); border:1px solid var(--ring); font-size:13px; color:var(--text); font-family:'Poppins'; }
@@ -126,6 +121,52 @@
       border:0;
       border-top:1px solid var(--ring);
       margin:24px 0 10px;
+    }
+
+    /* Swipeable CV cards */
+    .swipe-hint{
+      font-size:12px;
+      color:var(--muted);
+      margin:4px 2px 8px;
+    }
+    .carousel{
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
+      padding:4px 2px 10px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .carousel::-webkit-scrollbar{
+      height:4px;
+    }
+    .carousel::-webkit-scrollbar-track{
+      background:transparent;
+    }
+    .carousel::-webkit-scrollbar-thumb{
+      background:var(--ring);
+      border-radius:999px;
+    }
+    .cv-card{
+      flex:0 0 88%;
+      max-width:88%;
+      background:var(--panel);
+      border:1px solid var(--ring);
+      border-radius:var(--radius);
+      padding:16px 18px 18px;
+      box-shadow:0 4px 12px rgba(0,0,0,.04);
+      scroll-snap-align:start;
+    }
+    .cv-card h3.section-title{
+      margin-top:0;
+      margin-bottom:6px;
+    }
+
+    @media (min-width: 900px){
+      .cv-card{
+        flex:0 0 46%;
+        max-width:46%;
+      }
     }
 
     @media (max-width: 560px){
@@ -196,7 +237,7 @@
         <div class="subtitle reveal delay-2">M.S. Student · Chemical &amp; Materials Engineering</div>
       </header>
 
-      <!-- Intro: revert to original wording -->
+      <!-- Intro (original wording) -->
       <section class="content">
         <p>
           Hi—I'm <strong class="highlight">Hayoung</strong> from Seoul, currently pursuing my M.S. in
@@ -214,11 +255,11 @@
           continue it at the PhD level.
         </p>
         <p>
-          <strong class="highlight">If my background aligns with your lab, I'd love to connect!:D</strong>
+          <strong class="highlight">If my background aligns with your research, I'd love to connect!:D</strong>
         </p>
       </section>
 
-      <!-- Research interests / skills / languages: revert to original chips -->
+      <!-- Research interests / skills / languages (original chips) -->
       <section class="section" aria-label="Research interests and key skills">
         <h3 style="margin:0 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Research interests</h3>
         <div class="tags">
@@ -246,223 +287,221 @@
         </div>
       </section>
 
-      <!-- Divider between upper part and added sections -->
+      <!-- Divider between upper summary and swipeable CV -->
       <hr class="divider" />
 
-      <!-- Education -->
-      <section class="section" aria-label="Education">
-        <h3 class="section-title">Education</h3>
+      <!-- Swipeable CV cards -->
+      <section class="section" aria-label="CV overview">
+        <div class="swipe-hint">Swipe sideways on mobile to see more cards →</div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              M.S. in Chemical &amp; Materials Engineering, Ewha Womans University
+        <div class="carousel" aria-label="Scrollable CV cards">
+          <!-- Education card -->
+          <div class="cv-card">
+            <h3 class="section-title">Education</h3>
+
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  M.S. in Chemical &amp; Materials Engineering, Ewha Womans University
+                </div>
+                <div class="block-meta">Sep 2024 – Aug 2026 (expected)</div>
+              </div>
+              <div class="block-note">
+                GPA: 4.3 / 4.3 (WES 4.0)
+              </div>
+              <ul class="list">
+                <li>Research: AI-based inverse design of oxygen evolution reaction (OER) catalysts, autonomous experimentation.</li>
+                <li>Thesis direction: <em>Equivariant latent diffusion framework for electrocatalyst generation</em> (working title).</li>
+              </ul>
             </div>
-            <div class="block-meta">Sep 2024 – Aug 2026 (expected)</div>
-          </div>
-          <div class="block-note">
-            GPA: 4.3 / 4.3 (WES 4.0)
-          </div>
-          <ul class="list">
-            <li>Research: AI-based inverse design of oxygen evolution reaction (OER) catalysts, autonomous experimentation.</li>
-            <li>Thesis direction: <em>Equivariant latent diffusion framework for electrocatalyst generation</em> (working title).</li>
-          </ul>
-        </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              B.S. in Chemical Engineering &amp; Materials Science, Ewha Womans University
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  B.S. in Chemical Engineering &amp; Materials Science, Ewha Womans University
+                </div>
+                <div class="block-meta">Mar 2020 – Aug 2024</div>
+              </div>
+              <div class="block-note">
+                GPA: 3.75 / 4.3 (WES 3.66) · Graduated <strong>magna cum laude</strong>
+              </div>
+              <ul class="list">
+                <li>Undergraduate thesis (review, in Korean): <em>Machine-learning-driven electrocatalyst design: Open Catalyst Project and recent trends</em>.</li>
+                <li>Academic honors (Dean’s list-equivalent): 2020 Spring, 2021 Fall, 2022 Fall, 2024 Spring.</li>
+              </ul>
             </div>
-            <div class="block-meta">Mar 2020 – Aug 2024</div>
           </div>
-          <div class="block-note">
-            GPA: 3.75 / 4.3 (WES 3.66) · Graduated <strong>magna cum laude</strong>
-          </div>
-          <ul class="list">
-            <li>Undergraduate thesis (review, in Korean): <em>Machine-learning-driven electrocatalyst design: Open Catalyst Project and recent trends</em>.</li>
-            <li>Academic honors (Dean’s list-equivalent): 2020 Spring, 2021 Fall, 2022 Fall, 2024 Spring.</li>
-          </ul>
-        </div>
-      </section>
 
-      <!-- Research experience -->
-      <section class="section" aria-label="Research experience">
-        <h3 class="section-title">Research experience</h3>
+          <!-- Research experience card -->
+          <div class="cv-card">
+            <h3 class="section-title">Research experience</h3>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              Graduate researcher, Na Group (Ewha Womans University)
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  Graduate researcher, Na Group (Ewha Womans University)
+                </div>
+                <div class="block-meta">Sep 2024 – Present</div>
+              </div>
+              <div class="block-note">
+                Autonomous reaction optimization (sub) · Electrocatalyst design (main)
+              </div>
+              <ul class="list">
+                <li>Developing <strong>foundation models for OER catalysts</strong> based on OC20/OC22-style datasets.</li>
+                <li>Designing <strong>equivariant latent diffusion</strong> models for conditionally generating bulk/adsorbate/surface structures.</li>
+                <li>Exploring integration of generative models with <strong>self-driving laboratory</strong> workflows.</li>
+              </ul>
             </div>
-            <div class="block-meta">Sep 2024 – Present</div>
-          </div>
-          <div class="block-note">
-            Autonomous reaction optimization (sub) · Electrocatalyst design (main)
-          </div>
-          <ul class="list">
-            <li>Developing <strong>foundation models for OER catalysts</strong> based on OC20/OC22-style datasets.</li>
-            <li>Designing <strong>equivariant latent diffusion</strong> models for conditionally generating bulk/adsorbate/surface structures.</li>
-            <li>Exploring integration of generative models with <strong>self-driving laboratory</strong> workflows.</li>
-          </ul>
-        </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              Student researcher, KIST (Korea Institute of Science and Technology)
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  Student researcher, KIST (Korea Institute of Science and Technology)
+                </div>
+                <div class="block-meta">Mar 2022 – Jun 2022</div>
+              </div>
+              <div class="block-note">
+                Solid-state electrolyte ion conductivity prediction
+              </div>
+              <ul class="list">
+                <li>Used <strong>AIMD-generated trajectories</strong> to train machine-learning interatomic potentials.</li>
+                <li>Modeled and analyzed <strong>ionic conductivity</strong> of solid electrolytes from atomistic simulations.</li>
+              </ul>
             </div>
-            <div class="block-meta">Mar 2022 – Jun 2022</div>
           </div>
-          <div class="block-note">
-            Solid-state electrolyte ion conductivity prediction
-          </div>
-          <ul class="list">
-            <li>Used <strong>AIMD-generated trajectories</strong> to train machine-learning interatomic potentials.</li>
-            <li>Modeled and analyzed <strong>ionic conductivity</strong> of solid electrolytes from atomistic simulations.</li>
-          </ul>
-        </div>
-      </section>
 
-      <!-- Project -->
-      <section class="section" aria-label="Projects and grants">
-        <h3 class="section-title">Selected project</h3>
+          <!-- Project + publication card -->
+          <div class="cv-card">
+            <h3 class="section-title">Project &amp; publication</h3>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              NRF Data Hub for Green Hydrogen “Super Catalysts”
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  NRF Data Hub for Green Hydrogen “Super Catalysts”
+                </div>
+                <div class="block-meta">Sep 2024 – Present</div>
+              </div>
+              <div class="block-note">
+                Korea Research Foundation project · OER electrocatalyst foundation model
+              </div>
+              <ul class="list">
+                <li>Responsible for <strong>foundation model development</strong> for OER electrocatalysts within a national data hub.</li>
+                <li>Building inverse-design workflows to generate candidates matching <strong>target properties</strong> (e.g., binding energies, overpotential).</li>
+              </ul>
             </div>
-            <div class="block-meta">Sep 2024 – Present</div>
-          </div>
-          <div class="block-note">
-            Korea Research Foundation project · OER electrocatalyst foundation model
-          </div>
-          <ul class="list">
-            <li>Responsible for <strong>foundation model development</strong> for OER electrocatalysts within a national data hub.</li>
-            <li>Building inverse-design workflows to generate candidates matching <strong>target properties</strong> (e.g., binding energies, overpotential).</li>
-          </ul>
-        </div>
-      </section>
 
-      <!-- Publication -->
-      <section class="section" aria-label="Publication">
-        <h3 class="section-title">Publication</h3>
-
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">
-              Self-driving laboratories with artificial intelligence: an overview of process systems engineering perspective
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">
+                  Self-driving laboratories with artificial intelligence: an overview of process systems engineering perspective
+                </div>
+                <div class="block-meta">Computers &amp; Chemical Engineering, Vol. 203</div>
+              </div>
+              <div class="block-note">
+                <strong>First author</strong> · Overview of AI-driven self-driving labs from a PSE viewpoint.
+              </div>
+              <div class="chipline">
+                <a class="chip-mini" href="https://www.sciencedirect.com/science/article/pii/S0098135425002698" target="_blank" rel="noopener">
+                  View article
+                </a>
+              </div>
             </div>
-            <div class="block-meta">Computers &amp; Chemical Engineering, Vol. 203</div>
           </div>
-          <div class="block-note">
-            <strong>First author</strong> · Overview of AI-driven self-driving labs from a PSE viewpoint.
-          </div>
-          <div class="chipline">
-            <a class="chip-mini" href="https://www.sciencedirect.com/science/article/pii/S0098135425002698" target="_blank" rel="noopener">
-              View article
-            </a>
-          </div>
-        </div>
-      </section>
 
-      <!-- Conferences & events -->
-      <section class="section" aria-label="Conferences and posters">
-        <h3 class="section-title">Conferences &amp; posters</h3>
+          <!-- Conferences card -->
+          <div class="cv-card">
+            <h3 class="section-title">Conferences &amp; posters</h3>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">AIChE Annual Meeting, Boston (Poster)</div>
-            <div class="block-meta">Fall 2025</div>
-          </div>
-          <ul class="list">
-            <li><em>Equivariant latent diffusion for the generation of oxygen evolution reaction catalyst</em>.</li>
-          </ul>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">AIChE Annual Meeting, Boston (Poster)</div>
+                <div class="block-meta">Fall 2025</div>
+              </div>
+              <ul class="list">
+                <li><em>Equivariant latent diffusion for the generation of oxygen evolution reaction catalyst</em>.</li>
+              </ul>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">KIChE General Meeting, Daegu (Poster)</div>
-            <div class="block-meta">Spring 2025</div>
-          </div>
-          <ul class="list">
-            <li><em>Foundation model to accelerate oxygen evolution reaction catalyst</em>.</li>
-          </ul>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">KIChE General Meeting, Daegu (Poster)</div>
+                <div class="block-meta">Spring 2025</div>
+              </div>
+              <ul class="list">
+                <li><em>Foundation model to accelerate oxygen evolution reaction catalyst</em>.</li>
+              </ul>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">KIChE General Meeting, Busan (Poster)</div>
-            <div class="block-meta">Fall 2024</div>
-          </div>
-          <ul class="list">
-            <li><em>Autonomous chemical reaction optimization through derivative-free optimization</em>.</li>
-          </ul>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">KIChE General Meeting, Busan (Poster)</div>
+                <div class="block-meta">Fall 2024</div>
+              </div>
+              <ul class="list">
+                <li><em>Autonomous chemical reaction optimization through derivative-free optimization</em>.</li>
+              </ul>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Nature Conference: AI for Materials, Materials for AI, Daejeon</div>
-            <div class="block-meta">Feb 2025</div>
-          </div>
-          <div class="block-note">Participant</div>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Nature Conference: AI for Materials, Materials for AI, Daejeon</div>
+                <div class="block-meta">Feb 2025</div>
+              </div>
+              <div class="block-note">Participant</div>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Korean Industrial &amp; Engineering Chemistry Society, Jeju</div>
-            <div class="block-meta">Jun 2025</div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Korean Industrial &amp; Engineering Chemistry Society, Jeju</div>
+                <div class="block-meta">Jun 2025</div>
+              </div>
+              <div class="block-note">Participant</div>
+            </div>
           </div>
-          <div class="block-note">Participant</div>
-        </div>
-      </section>
 
-      <!-- Scholarships, TA, Service -->
-      <section class="section" aria-label="Scholarships, teaching, and service">
-        <h3 class="section-title">Scholarships</h3>
+          <!-- Scholarships / TA / Service card -->
+          <div class="cv-card">
+            <h3 class="section-title">Scholarship, TA &amp; service</h3>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Dooeul Scholarship Foundation · Full scholarship</div>
-            <div class="block-meta">Dec 2020 – Aug 2024</div>
-          </div>
-          <div class="block-note">
-            Supported by Samsung, CJ, Shinsegae, Hansol.
-          </div>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Dooeul Scholarship Foundation · Full scholarship</div>
+                <div class="block-meta">Dec 2020 – Aug 2024</div>
+              </div>
+              <div class="block-note">
+                Supported by Samsung, CJ, Shinsegae, Hansol.
+              </div>
+            </div>
 
-        <h3 class="section-title" style="margin-top:18px;">Teaching &amp; mentoring</h3>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Teaching Assistant (TA), Chemical Engineering Mathematics</div>
+                <div class="block-meta">Spring 2025</div>
+              </div>
+              <div class="block-note">
+                Led tutorials and problem sessions for undergraduate chemical engineering students.
+              </div>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Teaching Assistant (TA), Chemical Engineering Mathematics</div>
-            <div class="block-meta">Spring 2025</div>
-          </div>
-          <div class="block-note">
-            Led tutorials and problem sessions for undergraduate chemical engineering students.
-          </div>
-        </div>
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Teaching Assistant (TA), PSE Summer School</div>
+                <div class="block-meta">Aug 2025</div>
+              </div>
+              <div class="block-note">
+                Prepared and shared tutorial materials on GitHub for process systems engineering and AI.
+              </div>
+            </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Teaching Assistant (TA), PSE Summer School</div>
-            <div class="block-meta">Aug 2025</div>
-          </div>
-          <div class="block-note">
-            Prepared and shared tutorial materials on GitHub for process systems engineering and AI.
-          </div>
-        </div>
-
-        <h3 class="section-title" style="margin-top:18px;">Service</h3>
-
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Hyundai Motor Group Education Volunteer Corps (8th)</div>
-            <div class="block-meta">Jan 2022 – Dec 2022</div>
-          </div>
-          <div class="block-note">
-            Tutored and provided emotional support to children at local community centers.
+            <div class="block">
+              <div class="block-header">
+                <div class="block-title">Hyundai Motor Group Education Volunteer Corps (8th)</div>
+                <div class="block-meta">Jan 2022 – Dec 2022</div>
+              </div>
+              <div class="block-note">
+                Tutored and provided emotional support to children at local community centers.
+              </div>
+            </div>
           </div>
         </div>
       </section>
