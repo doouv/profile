@@ -73,7 +73,7 @@
 
     .foot{ margin-top: 26px; text-align: center; color: var(--muted); font-size: 13px; font-family:'Poppins'; }
 
-    /* Blocks & lists (for quick mobile scan) */
+    /* Blocks & lists */
     .block{
       padding:10px 0;
       border-top:1px solid var(--ring);
@@ -122,6 +122,12 @@
     }
     .list li+li{ margin-top:2px; }
 
+    .divider{
+      border:0;
+      border-top:1px solid var(--ring);
+      margin:24px 0 10px;
+    }
+
     @media (max-width: 560px){
       .block-header{ flex-direction:column; align-items:flex-start; }
       .block-meta{ margin-top:1px; }
@@ -151,7 +157,6 @@
       100%{ opacity:1; transform: none; }
     }
     
-    /* Element reveal helper */
     .reveal{ 
       opacity:0; 
       transform: translateY(10px); 
@@ -178,7 +183,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/><path d="M3 12v9h18v-9"/></svg>
             <span class="sr-only">Lab homepage</span>
           </a>
-          <a class="iconbtn" href="#" onclick="alert('Full CV coming soon. For now, this page is the quick snapshot.'); return false;" title="Snapshot CV" aria-label="CV">
+          <a class="iconbtn" href="#" onclick="alert('CV coming soon!'); return false;" title="CV (coming soon)" aria-label="CV">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="m7 12 5 5 5-5"/><rect x="4" y="19" width="16" height="2" rx="1"/></svg>
             <span class="sr-only">CV</span>
           </a>
@@ -188,52 +193,61 @@
           </a>
         </div>
         <h1 class="reveal delay-1">Ha-Young Doo</h1>
-        <div class="subtitle reveal delay-2">M.S. Student · Chemical &amp; Materials Engineering · Ewha Womans University</div>
+        <div class="subtitle reveal delay-2">M.S. Student · Chemical &amp; Materials Engineering</div>
       </header>
 
-      <!-- Short intro -->
+      <!-- Intro: revert to original wording -->
       <section class="content">
         <p>
-          I am <strong class="highlight">Hayoung</strong>, a master’s student in
-          <strong>Chemical &amp; Materials Engineering</strong> at Ewha Womans University (Seoul),
-          working at the interface of <strong class="highlight">AI for chemistry</strong>,
-          <strong class="highlight">electrocatalyst design</strong>, and
-          <strong class="highlight">autonomous research workflows</strong>.
+          Hi—I'm <strong class="highlight">Hayoung</strong> from Seoul, currently pursuing my M.S. in
+          <strong class="highlight">Chemical Engineering &amp; Materials Science</strong> at
+          Ewha Womans University.
         </p>
         <p>
-          My current focus is building <strong>foundation models for oxide-based OER catalysts</strong> and
-          enabling <strong>inverse design</strong> of electrocatalysts that are physically meaningful and
-          experimentally actionable.
+          I have strong interests in <strong class="highlight">AI for chemistry</strong> and
+          <strong class="highlight">autonomous research workflows</strong>. Currently, I'm working on
+          generative models for catalyst design to bridge the gap between data-driven modeling and
+          physical understanding.
+        </p>
+        <p>
+          I aim to deepen this work through global collaboration and
+          continue it at the PhD level.
+        </p>
+        <p>
+          <strong class="highlight">If my background aligns with your lab, I'd love to connect!:D</strong>
         </p>
       </section>
 
-      <!-- Research interests (short chips) -->
+      <!-- Research interests / skills / languages: revert to original chips -->
       <section class="section" aria-label="Research interests and key skills">
-        <h3 class="section-title">Research snapshot</h3>
-        <p class="section-sub">What I enjoy thinking about &amp; building</p>
+        <h3 style="margin:0 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Research interests</h3>
         <div class="tags">
-          <span class="tag">AI for Chemistry</span>
-          <span class="tag">Oxide Electrocatalysts (OER)</span>
-          <span class="tag">Inverse Design &amp; Generative Models</span>
-          <span class="tag">Self-Driving / Autonomous Labs</span>
-          <span class="tag">Process Systems Engineering Viewpoint</span>
+          <span class="tag">AI for Materials</span>
+          <span class="tag">Data-driven Discovery</span>
+          <span class="tag">Inverse Design</span>
+          <span class="tag">Autonomous Research</span>
+          <span class="tag">Self-Driving Lab</span>
         </div>
 
-        <h3 class="section-title" style="margin-top:16px;">Key skills</h3>
+        <h3 style="margin:16px 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Key skills</h3>
         <div class="tags">
-          <span class="tag">PyTorch · GNNs · Diffusion</span>
-          <span class="tag">Multi-GPU &amp; Docker</span>
-          <span class="tag">Dataset curation (OC20/OC22)</span>
-          <span class="tag">Scientific writing &amp; visualization</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Docker &amp; Reproducible ML</span>
+          <span class="tag">Multi-GPU Training</span>
+          <span class="tag">Data Curation &amp; Evaluation</span>
+          <span class="tag">Scientific Writing</span>
         </div>
 
-        <h3 class="section-title" style="margin-top:16px;">Languages</h3>
+        <h3 style="margin:16px 0 8px;font-size:16px;color:var(--brand);letter-spacing:.3px;font-weight:600;font-family:'Merriweather',serif">Languages</h3>
         <div class="tags">
+          <span class="tag">English (Advanced · TOEFL 110)</span>
+          <span class="tag">Chinese (Advanced · OPIc AL)</span>
           <span class="tag">Korean (Native)</span>
-          <span class="tag">English (Advanced)</span>
-          <span class="tag">Chinese (Advanced)</span>
         </div>
       </section>
+
+      <!-- Divider between upper part and added sections -->
+      <hr class="divider" />
 
       <!-- Education -->
       <section class="section" aria-label="Education">
@@ -310,7 +324,7 @@
         </div>
       </section>
 
-      <!-- Projects / Grants -->
+      <!-- Project -->
       <section class="section" aria-label="Projects and grants">
         <h3 class="section-title">Selected project</h3>
 
@@ -418,18 +432,11 @@
           </div>
         </div>
 
-        <div class="block">
-          <div class="block-header">
-            <div class="block-title">Merit-based scholarship, Ewha Womans University</div>
-            <div class="block-meta">Fall 2020</div>
-          </div>
-        </div>
-
         <h3 class="section-title" style="margin-top:18px;">Teaching &amp; mentoring</h3>
 
         <div class="block">
           <div class="block-header">
-            <div class="block-title">Teaching Assistant, Chemical Engineering Mathematics</div>
+            <div class="block-title">Teaching Assistant (TA), Chemical Engineering Mathematics</div>
             <div class="block-meta">Spring 2025</div>
           </div>
           <div class="block-note">
@@ -439,7 +446,7 @@
 
         <div class="block">
           <div class="block-header">
-            <div class="block-title">TA, PSE Summer School</div>
+            <div class="block-title">Teaching Assistant (TA), PSE Summer School</div>
             <div class="block-meta">Aug 2025</div>
           </div>
           <div class="block-note">
