@@ -51,15 +51,15 @@ button, textarea { font: inherit; }
 .section-inner { width: min(100% - 144px, 900px); margin: 0 auto; }
 .research-section { padding: 84px 0 42px; background: var(--burgundy); color: white; }
 .section-title { margin: 0 0 28px; font-size: clamp(48px, 5vw, 62px); line-height: 1; font-weight: 500; }
-.catdit-card { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 310px; background: var(--surface); color: var(--text); transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease; }
-.project-copy { padding: 36px 36px 24px; }
+.catdit-card { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; min-height: 260px; background: var(--surface); color: var(--text); transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease; }
+.project-copy { padding: 30px 36px 24px; }
 .project-number { margin: 0 0 8px; color: var(--burgundy); font-size: 19px; }
 .project-copy h3 { margin: 0 0 20px; font-size: 32px; line-height: 1.02; font-weight: 500; }
 .project-copy > p:not(.project-number) { margin: 0; color: var(--text-muted); font-size: 19px; line-height: 1.12; }
-.project-links { display: flex; gap: 30px; margin-top: 18px; font: 600 14px/1 var(--sans); }
-.project-links a { text-underline-offset: 4px; }
-.project-visual { margin: 22px 22px 22px 0; border-left: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
-.project-visual img { width: 93%; height: 245px; object-fit: contain; }
+.project-arrow { position: absolute; z-index: 2; top: 19px; right: 21px; width: 45px; height: 45px; display: grid; place-items: center; color: var(--burgundy); text-decoration: none; font: 400 32px/1 var(--sans); transition: transform .2s ease, color .2s ease; }
+.project-arrow:hover { color: var(--burgundy-dark); transform: translate(3px, -3px); }
+.project-visual { margin: 18px 22px 18px 0; border-left: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
+.project-visual img { width: 88%; height: 205px; object-fit: contain; }
 .coming-soon { margin-top: 28px; min-height: 150px; display: grid; place-content: center; gap: 10px; text-align: center; background: #c5939e; }
 .coming-soon span { color: var(--burgundy-dark); font: 500 15px/1 var(--sans); }
 .coming-soon strong { font-size: 27px; font-weight: 400; }
@@ -101,7 +101,7 @@ button, textarea { font: inherit; }
 .form-status { min-height: 18px; margin: 8px 0 0; color: var(--burgundy); font: 500 13px/1.3 var(--sans); }
 
 .reveal, .reveal-group > * { opacity: 0; transform: translateY(30px); }
-.reveal.is-visible, .reveal-group.is-visible > * { animation: reveal-up .82s cubic-bezier(.22, .61, .36, 1) both; }
+.reveal.is-visible, .reveal-group.is-visible > * { opacity: 1; transform: none; animation: reveal-up .82s cubic-bezier(.22, .61, .36, 1) backwards; }
 .reveal[data-delay="1"].is-visible { animation-delay: .12s; }
 .reveal[data-delay="2"].is-visible { animation-delay: .24s; }
 .reveal-group.is-visible > *:nth-child(2) { animation-delay: .1s; }
@@ -114,9 +114,7 @@ button, textarea { font: inherit; }
   to { opacity: 1; transform: none; }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .catdit-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(45, 8, 17, .14); opacity: 1; }
-}
+.catdit-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(45, 8, 17, .14); opacity: 1; }
 
 @media (max-width: 800px) {
   .site-nav { display: none; }
@@ -143,7 +141,7 @@ button, textarea { font: inherit; }
   .project-number { font-size: 15px; }
   .project-copy h3 { margin-bottom: 19px; font-size: 25px; line-height: 1.06; }
   .project-copy > p:not(.project-number) { font-size: 17px; line-height: 1.18; }
-  .project-links { margin-top: 15px; font-size: 13px; }
+  .project-arrow { top: 11px; right: 12px; width: 42px; height: 42px; font-size: 29px; }
   .project-visual { height: 230px; margin: 0 12px 14px; border-left: 0; }
   .project-visual img { height: 220px; }
   .coming-soon { min-height: 95px; margin-top: 23px; gap: 7px; }
@@ -181,10 +179,4 @@ button, textarea { font: inherit; }
   .intro { font-size: 16.5px; }
   .research-section, .vision-section, .conversation-section { padding-left: 20px; padding-right: 20px; }
   .methods span { padding-inline: 11px; font-size: 14px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .reveal, .reveal-group > * { opacity: 1; transform: none; }
 }
