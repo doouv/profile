@@ -56,10 +56,9 @@ button, textarea { font: inherit; }
 .project-number { margin: 0 0 8px; color: var(--burgundy); font-size: 19px; }
 .project-copy h3 { margin: 0 0 20px; font-size: 32px; line-height: 1.02; font-weight: 500; }
 .project-copy > p:not(.project-number) { margin: 0; color: var(--text-muted); font-size: 19px; line-height: 1.12; }
-.project-arrow { position: absolute; z-index: 2; top: 19px; right: 21px; width: 45px; height: 45px; color: var(--burgundy); text-decoration: none; transition: transform .2s ease, color .2s ease; }
-.project-arrow span::before { content: ""; position: absolute; left: 9px; bottom: 13px; width: 28px; height: 2px; background: currentColor; transform: rotate(-45deg); transform-origin: left center; }
-.project-arrow span::after { content: ""; position: absolute; top: 9px; right: 8px; width: 14px; height: 14px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
-.project-arrow:hover { color: var(--burgundy-dark); transform: translate(3px, -3px); }
+.project-arrow { position: absolute; z-index: 2; top: 20px; right: 22px; width: 45px; height: 45px; display: grid; place-items: center; text-decoration: none; transition: transform .2s ease; }
+.project-arrow img { width: 27px; height: 27px; }
+.project-arrow:hover { transform: translate(3px, -3px); }
 .project-visual { margin: 18px 22px 18px 0; border-left: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
 .project-visual img { width: 88%; height: 205px; object-fit: contain; }
 .coming-soon { margin-top: 28px; min-height: 150px; display: grid; place-content: center; gap: 10px; text-align: center; background: #c5939e; }
