@@ -57,7 +57,7 @@ button, textarea { font: inherit; }
 .project-copy h3 { margin: 0 0 20px; font-size: 32px; line-height: 1.02; font-weight: 500; }
 .project-copy > p:not(.project-number) { margin: 0; color: var(--text-muted); font-size: 19px; line-height: 1.12; }
 .project-arrow { position: absolute; z-index: 2; top: 20px; right: 22px; width: 45px; height: 45px; display: grid; place-items: center; text-decoration: none; transition: transform .2s ease; }
-.project-arrow img { width: 21px; height: 21px; }
+.project-arrow img { width: 15px; height: 15px; }
 .project-arrow:hover { transform: translate(3px, -3px); }
 .project-visual { margin: 18px 22px 18px 0; border-left: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
 .project-visual img { width: 88%; height: 205px; object-fit: contain; }
